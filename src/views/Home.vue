@@ -7,12 +7,21 @@
 
 <script>
 // @ is an alias to /src
+import firebase from 'firebase'
+
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
   components: {
     HelloWorld
+  },
+  methods: {
+    sair: function() {
+      firebase.auth().sigOut().then(() => {
+        this.$router.replace('login')
+        })
+    }
   }
 }
 
