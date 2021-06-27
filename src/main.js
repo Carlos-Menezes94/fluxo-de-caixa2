@@ -17,6 +17,10 @@ var config = {
 // Initialize Firebase
 firebase.initializeApp(config);
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '@/assets/css/main.css'
+
+
 let app = '';
 firebase.auth().onAuthStateChanged(() => {
   if (!app) {
@@ -25,4 +29,12 @@ firebase.auth().onAuthStateChanged(() => {
       render: h => h(App)
     }).$mount('#app');
   }
+  firebase.auth().signOut().then(() => {
+    // Sign-out successful.
+  })
+  
+  
 })
+
+
+

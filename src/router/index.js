@@ -6,12 +6,10 @@ import SignUp from '../views/SignUp'
 import firebase from 'firebase/app'
 
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
+   routes: [
   {
     path: '*',
     redirect: '/login'
@@ -26,26 +24,26 @@ const router = new Router({
     component: Login
   },
   {
-    path:'/register',
-    name: 'signUp',
+    path:'/registrar',
+    name: 'SignUp',
     component: SignUp
   },
   {
     path: '/home',
-    name: 'Home',
+    name: 'home',
     component: Home,
     meta: {
-      requeresAuth: true
+      requiresAuth: true
     }
   }, 
   {
-    path: '/',
-    redirect: 'login',
+    path: '/about',
+    redirect: 'about',
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
   
 ],
-});
+})
 
 router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser;

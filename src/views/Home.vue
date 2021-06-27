@@ -1,28 +1,32 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="../assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <button @click="sair">Sair</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import firebase from 'firebase'
+import firebase from "firebase";
 
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
+    HelloWorld,
   },
   methods: {
-    sair: function() {
-      firebase.auth().sigOut().then(() => {
-        this.$router.replace('login')
+    sair: function () {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace("login");
         })
-    }
-  }
-}
-
+        .catch(() => {});
+    },
+  },
+};
 </script>
