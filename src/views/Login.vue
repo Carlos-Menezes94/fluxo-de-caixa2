@@ -1,3 +1,4 @@
+
 <template>
   <div class="login">
     <h1>Login</h1>
@@ -8,19 +9,71 @@
     <div class="btn-login">
       <template v-if="loading"> Logando... </template>
       <template v-else>
-        <button @click="login">Login</button>
-      </template>
+        <br />
+
+        <button @click="login">Entrar</button> </template
+      ><br />
+
+  <a class="button is-google is-outlined is-info is-rounded is-medium is-fullwidth"
+            @click="loginWithGoogle">
+            <span class="icon">
+              <i class="fab fa-google"></i>
+            </span>
+            <span>Entrar com o Google</span>
+          </a>
+      
     </div>
-    <p>
-      Você não tem conta?
-      <router-link to="/registrar">crie uma conta</router-link>
-    </p>
+    
+    <br />
+    <p></p>
+    <div class="text-xs-center">
+      <v-btn
+        round
+        color="warning"
+        dark
+        :disabled="loading"
+        :loading="loading"
+        @click.prevent="onResetPassword"
+        >Redefinir senha por e-mail
+        <v-icon right dark>email</v-icon>
+        <span slot="loader" class="custom-loader">
+          <v-icon light>cached</v-icon>
+        </span>
+      </v-btn>
+    </div>
+
+    Você não tem conta?
+    <router-link to="/registrar">crie uma conta</router-link>
   </div>
 </template>
 
 
 <script>
-import firebase from "firebase/app";
+import firebase from "firebase";
+export default {
+  name: "login",
+  methods: {
+    googleLogin() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then(() => {
+          this.$router.replace("home");
+        })
+        .catch((err) => {
+          // TODO:
+          alert(err.message);
+        });
+    },
+  },
+};
+</script>
+
+<script>
+
+import firebase from "firebase";
+import "firebaseui/dist/firebaseui.css";
 
 export default {
   name: "login",
@@ -48,6 +101,19 @@ export default {
           }
         );
     },
+     loginWithGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then(() => {
+          this.$router.replace("home");
+        })
+        .catch(err => {
+          // TODO:
+          alert(err.message);
+        });
+    }
   },
 };
 </script>
