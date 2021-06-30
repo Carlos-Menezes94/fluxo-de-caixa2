@@ -21,7 +21,7 @@ firebase.analytics();
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@/assets/css/main.css'
 import "firebaseui/dist/firebaseui.css";
-
+import "@fortawesome/fontawesome-free"
 firebase.auth().languageCode = 'it';
 
 let app = '';

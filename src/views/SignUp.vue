@@ -1,5 +1,4 @@
 <template>
-
   <div class="sign-up">
     <h1>Crie nova conta</h1>
     <input type="text" placeholder="Email" v-model="email" />
@@ -9,20 +8,18 @@
     <button @click="signUp">Registrar</button>
     <br />
     <span> ou retorne ao <router-link to="/login"> login.</router-link> </span>
-  
-</div>
+  </div>
 </template>
 
 <script>
 import firebase from "firebase";
 
-
 export default {
   name: "signUp",
   data() {
     return {
-      email: '',
-      senha: '',
+      email: "",
+      senha: "",
     };
   },
   methods: {
@@ -40,10 +37,5 @@ export default {
           }
         );
     },
-   
   },
-  
-  
 };
-
-

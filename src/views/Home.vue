@@ -7,7 +7,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import firebase from "firebase";
 
 import HelloWorld from "@/components/HelloWorld.vue";

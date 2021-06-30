@@ -12,9 +12,10 @@
     <div class="btn-login">
       <template v-if="loading"> Logando... </template>
       <template v-else>
-                <br />
+        <br />
 
-         Esqueceu a senha?   <router-link to="resetpassword">recupere ela aqui.</router-link>
+        Esqueceu a senha?
+        <router-link to="resetpassword">recupere ela aqui.</router-link>
         <br />
         <br />
 
@@ -28,13 +29,14 @@
         "
         @click="loginWithGoogle"
       >
+        <span>Entrar com o Google</span>
+        <br />
         <span class="icon">
           <i class="fab fa-google"></i>
         </span>
-        <span>Entrar com o Google</span>
       </a>
     </div>
-    <br />
+    <br /><br /><br /><br /><br /><br /><br />
     Você não tem conta?
     <router-link to="/registrar">crie uma agora mesmo!</router-link>
   </div>

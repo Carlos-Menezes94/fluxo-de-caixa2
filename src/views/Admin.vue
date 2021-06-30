@@ -6,14 +6,12 @@
         </a>
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
-                <!-- sidebar-brand  -->
                 <div class="sidebar-item sidebar-brand">
                     <a href="#">Vue Shop</a>
                     <div id="close-sidebar" @click="closeMenu">
                         <i class="fas fa-times"></i>
                     </div>
                 </div>
-                <!-- sidebar-header  -->
                 <div class="sidebar-item sidebar-header">
                     <div class="user-pic">
                         <img class="img-responsive img-rounded" src="/img/user.png" alt="User picture">
@@ -29,7 +27,6 @@
                         </span>
                     </div>
                 </div>
-                <!-- sidebar-search  -->
                 <div class="sidebar-item sidebar-search">
                     <div>
                         <div class="input-group">
@@ -42,7 +39,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- sidebar-menu  -->
                 <div class=" sidebar-item sidebar-menu">
                     <ul>
                         <li class="header-menu">
@@ -82,17 +78,13 @@
                         </li>
                     </ul>
                 </div>
-                <!-- sidebar-menu  -->
             </div>
        
         </nav>
-        <!-- sidebar-content  -->
         <main class="page-content">
             <router-view/>
         </main>
-        <!-- page-content" -->
     </div>
-    <!-- page-wrapper -->
 
 
 
@@ -101,7 +93,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Hero from "@/components/Hero.vue";
 import {fb} from '../firebase';
 
