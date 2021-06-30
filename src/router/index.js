@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login'
 import SignUp from '../views/SignUp'
 import firebase from 'firebase/app'
+import ResetPassword from '../views/ResetPassword'
 
 
 Vue.use(Router);
@@ -16,6 +17,11 @@ const router = new Router({
         {
             path: '/',
             redirect: '/login'
+        },
+        {
+            path: "/resetpassword",
+            name: "resetpassword",
+            component: ResetPassword
         },
         {
             path: '/login',

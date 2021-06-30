@@ -1,7 +1,10 @@
-
 <template>
   <div class="login">
     <h1>Login</h1>
+    <br />
+    <br />
+    <br />
+
     <input type="text" placeholder="Email" v-model="email" />
     <br />
     <input type="password" placeholder="Senha" v-model="senha" />
@@ -9,41 +12,31 @@
     <div class="btn-login">
       <template v-if="loading"> Logando... </template>
       <template v-else>
+                <br />
+
+         Esqueceu a senha?   <router-link to="resetpassword">recupere ela aqui.</router-link>
+        <br />
         <br />
 
         <button @click="login">Entrar</button> </template
-      ><br />
+      ><br /><br />
 
-  <a class="button is-google is-outlined is-info is-rounded is-medium is-fullwidth"
-            @click="loginWithGoogle">
-            <span class="icon">
-              <i class="fab fa-google"></i>
-            </span>
-            <span>Entrar com o Google</span>
-          </a>
-      
-    </div>
-    
-    <br />
-    <p></p>
-    <div class="text-xs-center">
-      <v-btn
-        round
-        color="warning"
-        dark
-        :disabled="loading"
-        :loading="loading"
-        @click.prevent="onResetPassword"
-        >Redefinir senha por e-mail
-        <v-icon right dark>email</v-icon>
-        <span slot="loader" class="custom-loader">
-          <v-icon light>cached</v-icon>
+      <a
+        class="
+          button
+          is-google is-outlined is-info is-rounded is-medium is-fullwidth
+        "
+        @click="loginWithGoogle"
+      >
+        <span class="icon">
+          <i class="fab fa-google"></i>
         </span>
-      </v-btn>
+        <span>Entrar com o Google</span>
+      </a>
     </div>
-
+    <br />
     Você não tem conta?
-    <router-link to="/registrar">crie uma conta</router-link>
+    <router-link to="/registrar">crie uma agora mesmo!</router-link>
   </div>
 </template>
 
@@ -71,9 +64,7 @@ export default {
 </script>
 
 <script>
-
 import firebase from "firebase";
-import "firebaseui/dist/firebaseui.css";
 
 export default {
   name: "login",
@@ -101,7 +92,7 @@ export default {
           }
         );
     },
-     loginWithGoogle() {
+    loginWithGoogle() {
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase
         .auth()
@@ -109,11 +100,11 @@ export default {
         .then(() => {
           this.$router.replace("home");
         })
-        .catch(err => {
+        .catch((err) => {
           // TODO:
           alert(err.message);
         });
-    }
+    },
   },
 };
 </script>

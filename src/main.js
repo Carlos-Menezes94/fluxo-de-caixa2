@@ -20,8 +20,9 @@ firebase.analytics();
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@/assets/css/main.css'
+import "firebaseui/dist/firebaseui.css";
 
-
+firebase.auth().languageCode = 'it';
 
 let app = '';
 firebase.auth().onAuthStateChanged(() => {
@@ -31,9 +32,7 @@ firebase.auth().onAuthStateChanged(() => {
             render: h => h(App)
         }).$mount('#app');
     }
-    firebase.auth().signOut().then(() => {
-        // Sign-out successful.
-    })
+    firebase.auth().signOut().then(() => {})
 
 
 
