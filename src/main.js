@@ -22,11 +22,21 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '@/assets/css/main.css'
 import "firebaseui/dist/firebaseui.css";
 import "@fortawesome/fontawesome-free"
+import GoogleAuth from '../src/config/google-config'
+
 firebase.auth().languageCode = 'it';
+
+const gauthOption = {
+    clientId: '707231563844-e5cpkqrlt62gncmj6b84of5sml9lp8g9.apps.googleusercontent.com',
+    scope: 'profile email',
+    prompt: 'select_account'
+}
 
 let app = '';
 firebase.auth().onAuthStateChanged(() => {
     if (!app) {
+        Vue.use(GoogleAuth, gauthOption)
+
         app = new Vue({
             router,
             render: h => h(App)
